@@ -1,0 +1,35 @@
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="babel.min.js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+    function A(obj){
+        var nameRef=React.useRef()
+        function fnClick(){
+            var name=nameRef.current.value;
+            obj.f(name)
+        }
+        
+        return <div><h1>A Component</h1>
+                <p>Name:<input ref={nameRef}/></p>
+                <input onClick={fnClick} type='button' value="Submit"/>
+
+            </div>
+    }
+    function App(){
+        const [data,setData]=React.useState('Not Yet Received')
+        function cb(res){
+            setData(res)
+        }
+        return <div>
+                <h1>App Component: {data}</h1>
+                <A f={cb}/>
+            </div>
+
+    }
+    var container=document.getElementById('root')
+    ReactDOM.render(<App/>,container)
+</script>

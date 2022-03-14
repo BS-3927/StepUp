@@ -1,0 +1,20 @@
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="babel.min.js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+    function Player(o){
+        return <h1>Hi this is {o.n}, I am from {o.l}</h1>
+    }
+    function App(){
+        return <div>
+            <Player n="Sachin" l="Mumbai"/>
+            <Player n="Dhoni" l="Ranchi"/>
+            <Player n="Kolhi" l="Delhi"/>
+            </div>
+    }
+    var container=document.getElementById('root')
+    ReactDOM.render(<App/>,container)
+</script>

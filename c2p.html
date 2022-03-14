@@ -1,0 +1,26 @@
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="babel.min.js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+    function A(obj){
+        const [name]=React.useState('Sachin')
+        obj.f(name)
+        return <h1>A Component</h1>
+    }
+    function App(){
+        function cb(data){
+            console.log('parent',data)
+        }
+        return <div>
+                <h1>App Component</h1>
+                <A f={cb}/>
+            </div>
+
+    }
+    var container=document.getElementById('root')
+    ReactDOM.render(<App/>,container)
+</script>

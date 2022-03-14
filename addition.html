@@ -1,0 +1,40 @@
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="babel.min.js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+    
+    function App(){
+        function fnClick(){
+            var n1=document.getElementById('n1').value;
+            var n2=document.getElementById('n2').value;
+            var sum=Number(n1)+Number(n2);
+            var resRef=document.querySelector('h1');
+            console.log(sum);
+            resRef.innerText=sum;
+            var clr='blue'
+
+            if(sum>100){
+                clr="red"
+            }
+                resRef.style.color=clr
+        }
+        return <div>
+            <p>
+                <b>No1:</b><input id="n1" placeholder="Enter no"/>
+            </p>
+            <p>
+                <b>No2:</b><input id="n2" placeholder="Enter no"/>
+            </p>
+            <p>
+                <input onClick={fnClick} type="button" value="Sum"/>
+            </p>
+            
+                <h1>0</h1>
+            </div>
+    }
+    var container=document.getElementById('root')
+    ReactDOM.render(<App/>,container)
+</script>

@@ -1,0 +1,45 @@
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="babel.min.js"></script>
+
+<div id="root"></div>
+
+<style>
+    #area{
+        height: 300px;
+    }
+    .arrow{
+        border: 1px solid red;
+        width: 100px;
+        display: inline-block;
+        position: absolute;
+        top: 150;
+        transition: left 2s;
+    }
+    .wall{
+        border: 1px solid red;
+        height: 300px;
+        display: inline-block;
+        position: absolute;
+        left: 500;
+    }
+</style>
+
+<script type="text/babel">
+    
+    function App(){
+        const [n,setN]=React.useState(0)
+        function fnClick(){
+            setN(400)
+        }
+        return <div>
+            <div id="area">
+                <div class="arrow" style={{left:n}}></div>
+                <div class="wall"></div>
+            </div>
+            <input onClick={fnClick} type="button" value="Shoot"/>
+            </div>
+    }
+    var container=document.getElementById('root')
+    ReactDOM.render(<App/>,container)
+</script>

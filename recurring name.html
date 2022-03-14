@@ -1,0 +1,25 @@
+<script src="react.development.js"></script>
+<script src="babel.min.js"></script>
+<script src="react-dom.development.js"></script>
+
+
+<div id="root"></div>
+
+
+<script type="text/babel">
+    //React
+    function Content(){
+        return <h1>Hi Sachin</h1>
+    }
+    function App(){
+        return <div>
+                    <Content/>
+                    <Content/>
+                    <Content/>
+                    <Content/>
+                    <Content/>
+                </div>
+    }
+    var container=document.getElementById('root')
+    ReactDOM.render(<App/>,container)
+</script>

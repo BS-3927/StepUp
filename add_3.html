@@ -1,0 +1,52 @@
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="babel.min.js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+    
+    function App(){
+        const [sum,setSum]=React.useState('Enter numbers')
+        const [clr,setClr]=React.useState('green')
+        const [n1,setn1]=React.useState(0)
+        const [n2,setn2]=React.useState(0)
+        
+        function fnChange(e){
+            var id=e.target.id
+            var val=Number(e.target.value);
+            if(id=='n1'){
+                setn1(val)
+            }else{
+                setn2(val)
+            }
+            
+        }
+
+        function fnClick(){
+            var sum=n1+n2
+            setSum(sum)
+            var _clr='blue'
+            if(sum>100){
+                _clr='red'
+            }
+            setClr(_clr)
+        }
+       
+        return <div>
+            <p>
+                <b>No1:</b><input id="n1" onChange={fnChange} placeholder="Enter no"/>
+            </p>
+            <p>
+                <b>No2:</b><input id="n2" onChange={fnChange} placeholder="Enter no"/>
+            </p>
+            <p>
+                <input type="button" onClick={fnClick} value="Sum"/>
+            </p>
+            
+                <h1 style={{color:clr}}>{sum}</h1>
+            </div>
+    }
+    var container=document.getElementById('root')
+    ReactDOM.render(<App/>,container)
+</script>

@@ -1,0 +1,58 @@
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="babel.min.js"></script>
+
+<style>
+    body{
+        margin: 0;
+    }
+    ul{
+        text-align: right;
+        list-style-type: none;
+        background: yellow;
+        margin: 0;
+        line-height: 50px;
+    }
+    ul>li{
+        display: inline;
+        margin-right: 15px;
+        font-size: 20px;
+        font-style: italic;
+        font-weight: bold;
+        letter-spacing: 3px;
+        cursor: pointer;
+    }
+    .active{
+        color: red;
+        font-size: 30px;
+    }
+</style>
+<div id="root"></div>
+
+<script type="text/babel">
+    
+    function App(){
+        
+        const [menuItom,setMenuItom]=React.useState('Home')
+        
+        function f(e){
+            e.stopPropagation()
+            if(e.target.nodeName=='UL'){
+                return
+            }
+            setMenuItom(e.target.innerText)
+        }
+
+
+        return <div>
+            <ul onClick={f}>
+                <li className={menuItom=='Home' ? 'active':''}>Home</li>
+                <li className={menuItom=='About' ? 'active':''}>About</li>
+                <li className={menuItom=='Contact' ? 'active':''}>Contact</li>
+                <li className={menuItom=='Services' ? 'active':''}>Services</li>
+            </ul>
+        </div>
+    }
+    var container=document.getElementById('root')
+    ReactDOM.render(<App/>,container)
+</script>

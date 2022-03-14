@@ -1,0 +1,20 @@
+<p>
+    <b>Product Name:</b>
+    <input onkeyup="fnDebounce(event)"/>
+</p>
+
+<script>
+    let timerId;
+    function fnDebounce(e){
+        
+        clearTimeout(timerId);
+        timerId=setTimeout (function(){
+            fnFetchProducts(e)
+        },1000)
+    }
+
+    function fnFetchProducts(e){
+        console.log('Fetch Products form db on the name of '+e.target.value)
+    }
+
+</script>

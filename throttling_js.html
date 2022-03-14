@@ -1,0 +1,23 @@
+
+
+<script>
+    let timerId;
+    let _flag=true
+    function fnHandel(){
+        console.log('5k lines')
+    }
+
+    function fnResize(){
+        if (_flag){
+            fnHandel();
+            _flag=false
+        }
+        clearTimeout(timerId)
+        timerId=setTimeout(function(){
+            fnHandel()
+        },1000)
+        
+    }
+
+    window.addEventListener('resize', fnResize)
+</script>
